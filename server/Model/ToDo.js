@@ -1,8 +1,15 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
+// import autoIncrement from "mongoose-auto-increment";
 
-const ToDoSchema = new Schema({
-    input : String
-});
+ const ToDoSchema = mongoose.Schema({
+    task : String,
+    done : {
+      type : Boolean,
+      default : false
+    }
+ 
+ })
+ 
+ const ToDomodel = mongoose.model('todolist' , ToDoSchema);
 
-const ToDomodel = ToDoSchema.model("todolist" , ToDoSchema);
-module.exports = ToDomodel;
+ export default ToDomodel;  
